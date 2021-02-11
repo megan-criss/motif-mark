@@ -127,13 +127,33 @@ def draw_svg():
     '''
     This function is responsible for draing the svg output of the input fasta and motif files
     '''
-    yax = 0
-    width, height = 1000,1000
+    yax = 50
+    width, height = 1000,1500
     surface = cairo.SVGSurface(output_file, width, height)
     context = cairo.Context(surface)
+    for motif in motif_list:
+        x,y,z = color_dict[motif]
+        context.set_source_rgb(0,0,0)
+        context.move_to(65 , yax)
+        context.show_text(motif)
+        context.set_source_rgb(x,y,z)
+        context.set_line_width(10)
+        context.move_to(52, yax-10)
+        context.line_to(60, yax+10)
+        context.stroke()
+        yax += 25
+    context.set_source_rgb(0,0,0)
+    context.move_to(65 , yax)
+    context.show_text("Exon")
+    context.set_source_rgb(0,0,0)
+    context.set_line_width(10)
+    context.move_to(52, yax-10)
+    context.line_to(60, yax+10)
+    context.stroke()
+    ###
     for header, sequence in fasta_dict.items():
         sequence = sequence.strip()
-        yax += 150
+        yax += 100
         xax = 65
         context.set_source_rgba(0, 0, 0)
         context.set_line_width(2)
@@ -160,25 +180,6 @@ def draw_svg():
                             context.set_source_rgb(0,0,0)   
                             context.move_to(xax , yax -30 )
                             context.show_text(header)
-    yleg = 700
-    for motif in motif_list:
-        x,y,z = color_dict[motif]
-        #print(motif)
-        context.set_source_rgb(0,0,0)
-        context.move_to(65 , yleg+5)
-        context.show_text(motif)
-        context.set_source_rgb(x,y,z)
-        context.move_to(50, yleg-2)
-        context.line_to(60, yleg+2)
-        context.stroke()
-        yleg += 25
-    context.set_source_rgb(0,0,0)
-    context.move_to(65 , yleg+5)
-    context.show_text("Exon")
-    context.set_source_rgb(0,0,0)
-    context.move_to(50, yleg-2)
-    context.line_to(60, yleg+2)
-    context.stroke()
     surface.finish()
 
 #drawing the final output!!
