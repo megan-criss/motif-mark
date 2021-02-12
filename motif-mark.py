@@ -128,7 +128,7 @@ def draw_svg():
     This function is responsible for draing the svg output of the input fasta and motif files
     '''
     yax = 50
-    width, height = 1000,1500
+    width, height = 1000,1500   # if picture cuts off, increase the second value in this line (will make it longer)
     surface = cairo.SVGSurface(output_file, width, height)
     context = cairo.Context(surface)
     for motif in motif_list:
@@ -167,15 +167,17 @@ def draw_svg():
         context.move_to(x+xax,yax)
         context.line_to(y+xax,yax)
         context.stroke()
+        height = yax
         for item in info_list:
+            line_width = 10
             if item[0] == header:
                 for m, length in motif_regex.items():
                     if m == item[1]:
+                        height = yax
                         r,b,g = color_dict_trans_motif[m]
                         for index in item[3]:
-                            line_width = 15
                             context.set_source_rgb(r,b,g)
-                            context.rectangle(index+xax, yax-7, length, line_width)
+                            context.rectangle(index+xax, height-5, length, line_width)
                             context.fill()
                             context.set_source_rgb(0,0,0)   
                             context.move_to(xax , yax -30 )
