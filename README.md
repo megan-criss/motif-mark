@@ -13,6 +13,7 @@ This script requires the installation of pycairo for the data visualization port
 '''
 
 conda install -c conda-forge pycairo
+
 '''
 
 or 
@@ -20,6 +21,7 @@ or
 '''
 
 pip install pycairo
+
 '''
 
 This script also requires the installation  of argparse and re(regex):
@@ -27,11 +29,13 @@ This script also requires the installation  of argparse and re(regex):
 '''
 
 pip install argparse
+
 '''
 
 '''
 
 pip install regex
+
 '''
 
 
@@ -43,6 +47,7 @@ In order to run this code use:
 '''
 
 motif-mark.py -f (fasta file input) -m (text file containing motifs, each on a new line [example below])
+
 '''
 
 For this program, exons in the fasta files should be capitalized  in order for the program to properly demarkate them (example below).
@@ -57,6 +62,7 @@ Fasta file formatting:
 \>Gene 1
 
 agatgtgactctatcgctagcatcgatcgactACTGACGATCTACGATCactgatcatgcatgctagcatgc
+
 '''
 
 Motif file formatting:
@@ -67,6 +73,7 @@ ygcy
 ATYG 
 YYYYYY 
 yyGCaa 
+
 '''
 
 ### Output
@@ -83,6 +90,7 @@ input:
 '''
 
 ./motif-mark.py -f Figure_1.fasta -m Fig_1_motifs.txt
+
 '''
 
 output:
@@ -90,4 +98,5 @@ output:
 '''
 
 Figure_1.svg
+
 '''
