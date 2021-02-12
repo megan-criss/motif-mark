@@ -10,9 +10,7 @@ The purpose of this script is to plot protein binding motifs on an image of the 
 
 This script requires the installation of pycairo for the data visualization portion.
 
-'''
 >conda install -c conda-forge pycairo
-'''
 
 or 
 
