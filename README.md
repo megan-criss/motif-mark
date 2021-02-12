@@ -11,31 +11,23 @@ The purpose of this script is to plot protein binding motifs on an image of the 
 This script requires the installation of pycairo for the data visualization portion.
 
 '''
-
-conda install -c conda-forge pycairo
-
+>conda install -c conda-forge pycairo
 '''
 
 or 
 
 '''
-
-pip install pycairo
-
+>pip install pycairo
 '''
 
 This script also requires the installation  of argparse and re(regex):
 
 '''
-
-pip install argparse
-
+>pip install argparse
 '''
 
 '''
-
-pip install regex
-
+>pip install regex
 '''
 
 
@@ -45,9 +37,7 @@ pip install regex
 In order to run this code use:
 
 '''
-
-motif-mark.py -f (fasta file input) -m (text file containing motifs, each on a new line [example below])
-
+>motif-mark.py -f (fasta file input) -m (text file containing motifs, each on a new line [example below])
 '''
 
 For this program, exons in the fasta files should be capitalized  in order for the program to properly demarkate them (example below).
@@ -58,22 +48,17 @@ For this program, exons in the fasta files should be capitalized  in order for t
 Fasta file formatting:
 
 '''
-
-\>Gene 1
-
-agatgtgactctatcgctagcatcgatcgactACTGACGATCTACGATCactgatcatgcatgctagcatgc
-
+>\>Gene 1
+>agatgtgactctatcgctagcatcgatcgactACTGACGATCTACGATCactgatcatgcatgctagcatgc
 '''
 
 Motif file formatting:
 
 '''
-
-ygcy 
-ATYG 
-YYYYYY 
-yyGCaa 
-
+>ygcy 
+>ATYG 
+>YYYYYY 
+>yyGCaa 
 '''
 
 ### Output
@@ -88,15 +73,11 @@ SVG output will be named the same as the input fasta file
 input:
 
 '''
-
-./motif-mark.py -f Figure_1.fasta -m Fig_1_motifs.txt
-
+>./motif-mark.py -f Figure_1.fasta -m Fig_1_motifs.txt
 '''
 
 output:
 
 '''
-
-Figure_1.svg
-
+>Figure_1.svg
 '''
